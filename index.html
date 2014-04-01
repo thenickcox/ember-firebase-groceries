@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <script src="https://cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
+    <script src='bower_components/jquery/dist/jquery.min.js'></script>
+    <script src='bower_components/handlebars/handlebars.min.js'></script>
+    <script src='bower_components/ember/ember.js'></script>
+    <script src='bower_components/ember-data/ember-data.min.js'></script>
+    <script src='bower_components/emberfire/dist/emberfire.js'></script>
+    <script src='javascripts/app.js'></script>
+  </head>
+  <body>
+    <script type="text/x-handlebars">
+    <h1>To Buy</h1>
+    {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="items">
+    {{input id='new-item' type='text' value=itemTitle action='createItem' placeholder='What do we need to buy?' }}
+    <h3>Items</h3>
+    <ul>
+    {{#each}}
+      <li>{{title}}</li>
+    {{/each}}
+    </ul>
+  </script>
+  </body>
+</html>
