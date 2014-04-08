@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "karma": "~0.10",
+    "karma-qunit": "^0.1.1",
+    "karma-ember-preprocessor": "^1.5.0"
+  }
+}

@@ -1,0 +1,7 @@
+{{input id='new-item' type='text' value=itemTitle action='createItem' placeholder='What do we need to buy?' }}
+<h3>Items</h3>
+<ul>
+  {{#each itemController='item'}}
+    <li>{{title}}<button {{action 'deleteItem'}}>Delete</button></li>
+  {{/each}}
+</ul>

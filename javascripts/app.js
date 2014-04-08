@@ -1,9 +1,11 @@
 window.App = Ember.Application.create({});
 
-App.ApplicationAdapter = DS.FirebaseAdapter.extend({
-  firebase: new Firebase("https://luminous-fire-4173.firebaseio.com/")
-});
-App.ApplicationSerializer = DS.FirebaseSerializer.extend();
+//App.ApplicationAdapter = DS.FirebaseAdapter.extend({
+  //firebase: new Firebase("https://luminous-fire-4173.firebaseio.com/")
+//});
+//App.ApplicationSerializer = DS.FirebaseSerializer.extend();
+
+App.ApplicationAdapter = DS.FixtureAdapter.extend();
 
 App.Router.map(function(){
   this.resource('items', { path: '/' });
@@ -43,6 +45,16 @@ App.ItemsController = Ember.ArrayController.extend({
         });
         this.set('itemTitle', '');
         item.save();
-      }
+      },
     }
+});
+
+App.ItemController = Ember.ObjectController.extend({
+  actions: {
+    deleteItem: function(){
+      var item = this.get('model');
+      item.deleteRecord();
+      item.save();
+    }
+  }
 });
