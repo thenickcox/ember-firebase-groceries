@@ -1,11 +1,3 @@
-Ember.testing = true;
-App.setupForTesting();
-App.injectTestHelpers();
-
-function exists(selector) {
-  return !!find(selector).length;
-}
-
 module('integration tests', {
   setup: function() {
     Ember.run(function() {

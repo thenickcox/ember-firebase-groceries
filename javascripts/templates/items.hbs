@@ -2,6 +2,12 @@
 <h3>Items</h3>
 <ul>
   {{#each itemController='item'}}
-    <li>{{title}}<button {{action 'deleteItem'}}>Delete</button></li>
+    <li class='item'>
+    <button {{action 'decrementQuantity'}}{{bind-attr disabled=quantityIsZero}}>-</button>
+      <button {{action 'incrementQuantity'}}>+</button>
+      <span {{bind-attr class="isBought:bought"}}>{{#view App.ItemView}}{{displayTitle}}{{/view}}</span>
+      <button {{action 'deleteItem'}}>Delete</button>
+    </li>
   {{/each}}
 </ul>
+<p>{{totalItems}} total items</p>

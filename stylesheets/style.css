@@ -1,0 +1,17 @@
+.item {
+  display: inline-block;
+  width: 100%;
+}
+
+.item span, .item button {
+  float: left
+}
+
+span {
+  cursor: pointer;
+}
+
+.bought {
+  text-decoration: line-through;
+  color: #999;
+}

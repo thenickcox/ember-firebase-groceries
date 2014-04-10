@@ -18,7 +18,9 @@ module.exports = function(config) {
       'bower_components/handlebars/handlebars.min.js',
       'bower_components/ember/ember.js',
       'bower_components/ember-data/ember-data.min.js',
+      'bower_components/ember-qunit/dist/globals/main.js',
       'javascripts/*.js',
+      'test/test-helpers.js',
       'test/*-test.js',
       'javascripts/templates/*.hbs'
     ],
