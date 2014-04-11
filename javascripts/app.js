@@ -40,9 +40,41 @@ App.ItemsRoute = Ember.Route.extend({
 
 
 App.ItemsController = Ember.ArrayController.extend({
+
   totalItems: function(){
     return this.get('length');
-  }.property('@each.length'),
+  }.property('@each'),
+
+  boughtItems: function(){
+    return this.filterBy('isBought').get('length');
+  }.property('@each.isBought'),
+
+  itemStatement: function(){
+    var total = this.get('totalItems');
+    switch(total){
+      case 0:
+        return 'O items'
+        break;
+      case 1:
+        return '1 item'
+        break;
+      default:
+        return total + ' items'
+        break;
+    }
+  }.property('totalItems'),
+
+  remainingItems: function(){
+    return this.get('totalItems') - this.get('boughtItems');
+  }.property('totalItems', 'boughtItems'),
+
+  progress: function(){
+    if (this.get('boughtItems') === 0 ) {
+      return 0;
+    }
+    return (this.get('boughtItems') / this.get('totalItems')) * 100;
+  }.property('totalItems', 'boughtItems'),
+
   actions: {
       createItem: function(){
         var title = this.get('itemTitle');

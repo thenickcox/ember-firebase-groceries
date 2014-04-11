@@ -10,4 +10,5 @@
     </li>
   {{/each}}
 </ul>
-<p>{{totalItems}} total items</p>
+<p>{{itemStatement}} (bought: {{boughtItems}}, remaining: {{remainingItems}})</p>
+<progress max='100' {{bind-attr value='progress'}}></progress>
