@@ -45,8 +45,28 @@ App.ItemsController = Ember.ArrayController.extend({
     return this.get('length');
   }.property('@each'),
 
+  noItems: function(){
+    return this.get('totalItems') === 0;
+  }.property('@each'),
+
+  allItemsBought: function(){
+    return this.get('totalItems') > 0 && this.get('unboughtItems').length === 0;
+  }.property('totalItems', 'unboughtItems'),
+
+  unboughtItems: function(){
+    return this.filterBy('isBought', false);
+  }.property('@each.isBought'),
+
   boughtItems: function(){
-    return this.filterBy('isBought').get('length');
+    return this.filterBy('isBought');
+  }.property('@each.isBought'),
+
+  boughtItemsCount: function(){
+    return this.get('boughtItems').length;
+  }.property('@each.isBought'),
+
+  anyBoughtItems: function(){
+    return this.get('boughtItemsCount') > 0;
   }.property('@each.isBought'),
 
   itemStatement: function(){
@@ -65,15 +85,15 @@ App.ItemsController = Ember.ArrayController.extend({
   }.property('totalItems'),
 
   remainingItems: function(){
-    return this.get('totalItems') - this.get('boughtItems');
-  }.property('totalItems', 'boughtItems'),
+    return this.get('totalItems') - this.get('boughtItemsCount');
+  }.property('totalItems', 'boughtItemsCount'),
 
   progress: function(){
-    if (this.get('boughtItems') === 0 ) {
+    if (this.get('boughtItemsCount') === 0 ) {
       return 0;
     }
-    return (this.get('boughtItems') / this.get('totalItems')) * 100;
-  }.property('totalItems', 'boughtItems'),
+    return (this.get('boughtItemsCount') / this.get('totalItems')) * 100;
+  }.property('totalItems', 'boughtItemsCount'),
 
   actions: {
       createItem: function(){
@@ -87,6 +107,17 @@ App.ItemsController = Ember.ArrayController.extend({
         this.set('itemTitle', '');
         item.save();
       },
+      clearBought: function(){
+        bought = this.filterBy('isBought');
+        bought.invoke('deleteRecord');
+        bought.invoke('save');
+      },
+      clearAll: function(){
+        if (confirm('Whoa there, tiger. This cannot be undone. Are you sure?')) {
+          this.invoke('deleteRecord');
+          this.invoke('save');
+        }
+      }
     }
 });
 
