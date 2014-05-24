@@ -1,44 +1,6 @@
-<header>
-  {{input id='new-item' type='text' value=itemTitle action='createItem' placeholder='What do we need to buy?' }}
-</header>
-<section>
-  <h3>Items</h3>
-  <ul class='items'>
-    {{#each unboughtItems itemController='item'}}
-      <li class='item'>
-        <button {{action 'deleteItem'}} class='remove ui-button'>X</button>
-        <div class='plus-minus'>
-          <button class='ui-button minus' {{action 'decrementQuantity'}}{{bind-attr disabled=quantityIsZero}}>—</button>
-          <button class='ui-button plus' {{action 'incrementQuantity'}}>+</button>
-        </div>
-        <span {{bind-attr class="isBought:bought"}}>{{#view App.ItemView}}{{displayTitle}}{{/view}}</span>
-      </li>
-    {{/each}}
-    {{#if noItems}}<p>Let&rsquo;s go shopping!</p>{{/if}}
-    {{#if allItemsBought}}<p>Great job! You&rsquo;re done!{{/if}}
-  </ul>
+{{partial 'header'}}
 
-  {{#if anyBoughtItems}}
-    <h3>Bought</h3>
-    <ul class='bought'>
-      {{#each boughtItems itemController='item'}}
-        <li>
-          <span {{bind-attr class="isBought:bought"}}>{{#view App.ItemView}}{{displayTitle}}{{/view}}</span>
-        </li>
-      {{else}}
-        <p>You have not yet bought anything.</p>
-      {{/each}}
-    </ul>
-  {{/if}}
-</section>
+{{partial 'items'}}
 
-<div class='bottom-utilities'>
-  <p class='bought-statement'>{{itemStatement}} (bought: {{boughtItemsCount}}, remaining: {{remainingItems}})</p>
-  <div class='button-bar'>
-    <progress max='100' class='progress progress-success' {{bind-attr value='progress'}}></progress>
-    <div class='button-container'>
-      <button {{action 'clearBought'}} class='ui-button'>Clear Bought</button>
-      <button {{action 'clearAll'}} class='ui-button'>Clear All</button>
-    </div>
-  </div>
-</div>
+{{partial 'bottom_utilities'}}
+

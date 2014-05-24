@@ -1,0 +1,10 @@
+<div class='bottom-utilities'>
+  <p class='bought-statement'>{{itemStatement}} (bought: {{boughtItemsCount}}, remaining: {{remainingItems}})</p>
+  <div class='button-bar'>
+    <progress max='100' class='progress progress-success' {{bind-attr value='progress'}}></progress>
+    <div class='button-container'>
+      <button {{action 'clearBought'}} class='ui-button'>Clear Bought</button>
+      <button {{action 'clearAll'}} class='ui-button'>Clear All</button>
+    </div>
+  </div>
+</div>
