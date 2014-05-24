@@ -1,6 +1,6 @@
 <html>
   <head>
-    <meta name="viewport" content="initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   </head>
   <body>
     <link rel='stylesheet' href='css/style.css' />
@@ -12,7 +12,13 @@
     <script src='bower_components/ember-data/ember-data.min.js'></script>
     <script src='bower_components/emberfire/dist/emberfire.js'></script>
     <script src='javascripts/app.js'></script>
+    <script src='bower_components/fastclick/lib/fastclick.js'></script>
     <script>
+
+      window.addEventListener('load', function() {
+        FastClick.attach(document.body);
+      }, false);
+
       function compile(template) {
         var templateName = template.split('/templates/').reverse()[0].replace('.hbs', '');
         $.ajax({
