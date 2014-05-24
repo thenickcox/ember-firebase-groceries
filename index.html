@@ -1,8 +1,10 @@
 <html>
   <head>
+    <meta name="viewport" content="initial-scale=1">
   </head>
   <body>
-    <link rel='stylesheet' href='stylesheets/style.css' />
+    <link rel='stylesheet' href='css/style.css' />
+    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7494032/713102/css/fonts.css" />
     <script src="https://cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
     <script src='bower_components/jquery/dist/jquery.min.js'></script>
     <script src='bower_components/handlebars/handlebars.min.js'></script>
@@ -23,8 +25,8 @@
           }
         });
       }
-      compile('http://localhost:8000/javascripts/templates/application.hbs');
-      compile('http://localhost:8000/javascripts/templates/items.hbs');
+      compile('/javascripts/templates/application.hbs');
+      compile('/javascripts/templates/items.hbs');
     </script>
   </body>
 </html>

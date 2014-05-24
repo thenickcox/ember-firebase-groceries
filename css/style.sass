@@ -1,0 +1,157 @@
+$green: #2BC870
+$sans: 'Whitney SSm A', 'Whitney SSm B', 'Helvetica', sans-serif
+$blue: rgb(114, 192, 202)
+$blue_light: rgb(112, 190, 200)
+$orange: rgb(246, 133, 34)
+
+::-webkit-input-placeholder
+  color: #cecece
+
+
+body
+  margin: 0
+  padding: 0
+  font-family: $sans
+  font-weight: 400
+  font-style: normal
+  font-size: 18px
+  background: -webkit-linear-gradient(top, $blue, $blue + 20)
+  color: #fff
+  width: 100%
+  min-height: 480px
+
+header
+  padding: 0.3em
+  position: fixed
+  top: 0
+  background: #fff
+  border-bottom: 2px solid $blue - 10
+  z-index: 10
+  width: 100%
+  form
+    width: 96%
+
+section
+  padding: 1em
+  margin-top: 3em
+
+.container
+  width: 100%
+  margin: 0 auto
+
+ul
+  list-style: none
+  margin: 0
+  padding: 0
+  li
+    line-height: 2em
+    border-bottom: 1px solid $blue - 20
+    display: inline-block
+    width: 100%
+
+.plus-minus
+  float: left
+  margin-right: 1em
+  button
+    margin: 0
+  .minus
+    border-radius: 7px 0 0 7px
+  .plus
+    border-radius: 0 7px 7px 0
+    position: relative
+    right: 6px
+
+.ui-button
+  color: $blue
+  line-height: 1
+  background: -webkit-linear-gradient(top, #fff, #f6f6f6)
+  border: 1px solid $blue - 20
+  position: relative
+  top: 0.3em
+  padding: 4px 7px
+  border-radius: 15px
+  text-decoration: none
+
+.remove
+  float: right
+
+.bought-true
+  text-decoration: line-through
+  color: #666
+
+input
+  &[type=checkbox]
+    display: none
+  &[type=text]
+    border-top: none
+    border-left: none
+    border-right: none
+    border-bottom: 1px solid $blue + 10
+    background: #fff
+    -webkit-appearance: none
+    outline: none
+    -webkit-border-radius: 0
+    width: 100%
+    color: $blue
+    font-family: $sans
+    font-size: 18px
+    padding: 3px 2px
+
+.bottom-utilities
+  width: 100%
+  padding: 0
+  background: #fff
+  position: fixed
+  bottom: 0
+  border-top: 2px solid $blue - 10
+  button
+    background-image: -webkit-linear-gradient(top, #fff, #f6f6f6)
+    border: 1px solid $blue - 3
+    padding: 0.5em 1em
+    margin: 0 1%
+    color: $blue
+    text-decoration: none
+    border-radius: 3px
+    width: 37%
+    text-align: center
+    font-size: 15px
+    float: left
+    clear: none
+    &:hover
+      background: #f2f2f2
+
+.bought-remaining
+  text-align: center
+  width: 100%
+  color: $blue
+  display: block
+  margin-bottom: 3px
+
+.button-container
+  position: absolute
+  bottom: 2px
+  width: 98%
+  margin: 0 auto
+  padding: 0 2%
+  text-align: center
+
+
+// Progress Bar
+.progress
+  height: 20px
+  margin: 0 auto 2.5em auto
+  overflow: hidden
+  width: 94%
+  margin-top: 3px
+  border-radius: 4px
+
+progress::-webkit-progress-bar
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(whitesmoke), to(#f9f9f9))
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
+  -webkit-border-radius: 4px
+  background-color: #f7f7f7
+  background-repeat: repeat-x
+
+progress::-webkit-progress-bar-value, progress::-webkit-progress-value
+  background-image: -webkit-linear-gradient(top, $blue, $blue - 7)
