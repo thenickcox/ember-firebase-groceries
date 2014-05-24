@@ -127,12 +127,13 @@ App.ItemController = Ember.ObjectController.extend({
     return this.get('title') + ': ' + this.get('quantity');
   }.property('quantity', 'title'),
 
-  quantityIsZero: Ember.computed.equal('quantity', 1),
+  quantityIsOne: Ember.computed.equal('quantity', 1),
 
   actions: {
     toggleProperty: function(){
       var item = this.get('model');
       item.toggleProperty('isBought');
+      item.save();
     },
     deleteItem: function(){
       var item = this.get('model');
@@ -142,12 +143,12 @@ App.ItemController = Ember.ObjectController.extend({
     incrementQuantity: function(){
       var item = this.get('model'),
           newQty = item.get('quantity') + 1;
-      return item.set('quantity', newQty);
+      return item.set('quantity', newQty).save();
     },
     decrementQuantity: function(){
       var item = this.get('model'),
           newQty = item.get('quantity') - 1;
-      return item.set('quantity', newQty);
+      return item.set('quantity', newQty).save();
     }
   }
 });

@@ -5,7 +5,7 @@
       <li class='item'>
         <button {{action 'deleteItem'}} class='remove ui-button'>X</button>
         <div class='plus-minus'>
-          <button class='ui-button minus' {{action 'decrementQuantity'}}{{bind-attr disabled=quantityIsZero}}>—</button>
+          <button class='ui-button minus' {{action 'decrementQuantity'}}{{bind-attr disabled=quantityIsOne}}>—</button>
           <button class='ui-button plus' {{action 'incrementQuantity'}}>+</button>
         </div>
         <span {{bind-attr class="isBought:bought"}}>{{#view App.ItemView}}{{displayTitle}}{{/view}}</span>
