@@ -3,12 +3,12 @@
 </header>
 <section>
   <h3>Items</h3>
-  <ul>
+  <ul class='items'>
     {{#each unboughtItems itemController='item'}}
       <li class='item'>
         <button {{action 'deleteItem'}} class='remove ui-button'>X</button>
         <div class='plus-minus'>
-          <button class='ui-button minus' {{action 'decrementQuantity'}}{{bind-attr disabled=quantityIsZero}}>-</button>
+          <button class='ui-button minus' {{action 'decrementQuantity'}}{{bind-attr disabled=quantityIsZero}}>—</button>
           <button class='ui-button plus' {{action 'incrementQuantity'}}>+</button>
         </div>
         <span {{bind-attr class="isBought:bought"}}>{{#view App.ItemView}}{{displayTitle}}{{/view}}</span>
@@ -20,7 +20,7 @@
 
   {{#if anyBoughtItems}}
     <h3>Bought</h3>
-    <ul>
+    <ul class='bought'>
       {{#each boughtItems itemController='item'}}
         <li>
           <span {{bind-attr class="isBought:bought"}}>{{#view App.ItemView}}{{displayTitle}}{{/view}}</span>
@@ -33,10 +33,12 @@
 </section>
 
 <div class='bottom-utilities'>
-  <p>{{itemStatement}} (bought: {{boughtItemsCount}}, remaining: {{remainingItems}})</p>
-  <progress max='100' class='progress progress-success' {{bind-attr value='progress'}}></progress>
-  <div class='button-container'>
-    <button {{action 'clearBought'}} class='ui-button'>Clear Bought</button>
-    <button {{action 'clearAll'}} class='ui-button'>Clear All</button>
+  <p class='bought-statement'>{{itemStatement}} (bought: {{boughtItemsCount}}, remaining: {{remainingItems}})</p>
+  <div class='button-bar'>
+    <progress max='100' class='progress progress-success' {{bind-attr value='progress'}}></progress>
+    <div class='button-container'>
+      <button {{action 'clearBought'}} class='ui-button'>Clear Bought</button>
+      <button {{action 'clearAll'}} class='ui-button'>Clear All</button>
+    </div>
   </div>
 </div>

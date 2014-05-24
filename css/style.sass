@@ -57,8 +57,11 @@ ul
 .plus-minus
   float: left
   margin-right: 1em
+  position: relative
+  bottom: 5px
   button
     margin: 0
+    padding: 8px 16px
   .minus
     border-radius: 7px 0 0 7px
   .plus
@@ -79,8 +82,12 @@ ul
 
 .remove
   float: right
+  border-radius: 7px
+  padding: 8px 16px
+  position: relative
+  top: 2px
 
-.bought-true
+span.bought
   text-decoration: line-through
   color: #666
 
@@ -110,6 +117,7 @@ input
   bottom: 0
   border-top: 2px solid $blue - 10
   button
+    font-family: $sans
     background-image: -webkit-linear-gradient(top, #fff, #f6f6f6)
     border: 1px solid $blue - 3
     padding: 0.5em 1em
@@ -117,13 +125,17 @@ input
     color: $blue
     text-decoration: none
     border-radius: 3px
-    width: 37%
+    width: 46%
     text-align: center
     font-size: 15px
     float: left
     clear: none
     &:hover
       background: #f2f2f2
+
+.button-bar
+  margin: 0 auto
+  text-align: center
 
 .bought-remaining
   text-align: center
@@ -133,18 +145,22 @@ input
   margin-bottom: 3px
 
 .button-container
-  position: absolute
-  bottom: 2px
-  width: 98%
+  bottom: 10px
+  position: relative
+  width: 100%
   margin: 0 auto
   padding: 0 2%
   text-align: center
 
+.bought-statement
+  color: $blue
+  text-align: center
+  margin: 5px 0
 
 // Progress Bar
 .progress
   height: 20px
-  margin: 0 auto 2.5em auto
+  margin: 0 auto 1em auto
   overflow: hidden
   width: 94%
   margin-top: 3px

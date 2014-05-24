@@ -49,9 +49,12 @@ ul {
 
 .plus-minus {
   float: left;
-  margin-right: 1em; }
+  margin-right: 1em;
+  position: relative;
+  bottom: 5px; }
   .plus-minus button {
-    margin: 0; }
+    margin: 0;
+    padding: 8px 16px; }
   .plus-minus .minus {
     border-radius: 7px 0 0 7px; }
   .plus-minus .plus {
@@ -71,9 +74,13 @@ ul {
   text-decoration: none; }
 
 .remove {
-  float: right; }
+  float: right;
+  border-radius: 7px;
+  padding: 8px 16px;
+  position: relative;
+  top: 2px; }
 
-.bought-true {
+span.bought {
   text-decoration: line-through;
   color: #666666; }
 
@@ -102,6 +109,7 @@ input[type=text] {
   bottom: 0;
   border-top: 2px solid #68b6c0; }
   .bottom-utilities button {
+    font-family: "Whitney SSm A", "Whitney SSm B", "Helvetica", sans-serif;
     background-image: -webkit-linear-gradient(top, white, #f6f6f6);
     border: 1px solid #6fbdc7;
     padding: 0.5em 1em;
@@ -109,13 +117,17 @@ input[type=text] {
     color: #72c0ca;
     text-decoration: none;
     border-radius: 3px;
-    width: 37%;
+    width: 46%;
     text-align: center;
     font-size: 15px;
     float: left;
     clear: none; }
     .bottom-utilities button:hover {
       background: #f2f2f2; }
+
+.button-bar {
+  margin: 0 auto;
+  text-align: center; }
 
 .bought-remaining {
   text-align: center;
@@ -125,16 +137,21 @@ input[type=text] {
   margin-bottom: 3px; }
 
 .button-container {
-  position: absolute;
-  bottom: 2px;
-  width: 98%;
+  bottom: 10px;
+  position: relative;
+  width: 100%;
   margin: 0 auto;
   padding: 0 2%;
   text-align: center; }
 
+.bought-statement {
+  color: #72c0ca;
+  text-align: center;
+  margin: 5px 0; }
+
 .progress {
   height: 20px;
-  margin: 0 auto 2.5em auto;
+  margin: 0 auto 1em auto;
   overflow: hidden;
   width: 94%;
   margin-top: 3px;
