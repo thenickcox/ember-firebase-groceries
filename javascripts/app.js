@@ -95,6 +95,8 @@ App.ItemsController = Ember.ArrayController.extend({
     return (this.get('boughtItemsCount') / this.get('totalItems')) * 100;
   }.property('totalItems', 'boughtItemsCount'),
 
+  sortProperties: ['title'],
+
   actions: {
       createItem: function(){
         var title = this.get('itemTitle');
