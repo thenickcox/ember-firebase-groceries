@@ -5,22 +5,6 @@ App.ApplicationAdapter = DS.FirebaseAdapter.extend({
 });
 App.ApplicationSerializer = DS.FirebaseSerializer.extend();
 
-//App.ApplicationAdapter = DS.FixtureAdapter.extend();
-//App.Item.FIXTURES = [
-  //{
-    //id: 1,
-    //title: 'carrots',
-    //quantity: 1,
-    //isBought: false,
-  //},
-  //{
-    //id: 2,
-    //title: 'celery',
-    //quantity: 1,
-    //isBought: false,
-  //}
-//];
-
 App.Router.map(function(){
   this.resource('items', { path: '/' });
 });

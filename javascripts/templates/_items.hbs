@@ -8,7 +8,9 @@
           <button class='ui-button minus' {{action 'decrementQuantity'}}{{bind-attr disabled=quantityIsOne}}>—</button>
           <button class='ui-button plus' {{action 'incrementQuantity'}}>+</button>
         </div>
-        <span {{bind-attr class="isBought:bought"}}>{{#view App.ItemView}}{{displayTitle}}{{/view}}</span>
+        <span {{bind-attr class="isBought:bought"}}>
+          {{#view 'item'}}{{displayTitle}}{{/view}}
+        </span>
       </li>
     {{/each}}
     {{#if noItems}}<p>Let&rsquo;s go shopping!</p>{{/if}}
@@ -20,7 +22,9 @@
     <ul class='bought'>
       {{#each boughtItems itemController='item'}}
         <li>
-          <span {{bind-attr class="isBought:bought"}}>{{#view App.ItemView}}{{displayTitle}}{{/view}}</span>
+          <span {{bind-attr class="isBought:bought"}}>
+            {{#view 'item'}}{{displayTitle}}{{/view}}
+          </span>
         </li>
       {{else}}
         <p>You have not yet bought anything.</p>
