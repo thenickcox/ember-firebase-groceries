@@ -7,36 +7,12 @@
     <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7494032/713102/css/fonts.css" />
     <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120-precomposed.png">
     <script src="https://cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
-    <script src='bower_components/jquery/jquery.min.js'></script>
-    <script src='bower_components/handlebars/handlebars.min.js'></script>
-    <script src='bower_components/ember/ember.min.js'></script>
-    <script src='bower_components/ember-data/ember-data.min.js'></script>
-    <script src='bower_components/emberfire/dist/emberfire.js'></script>
-    <script src='javascripts/app.js'></script>
+    <script src='javascripts/app.concat.js'></script>
     <script src='bower_components/fastclick/lib/fastclick.js'></script>
     <script>
-
       window.addEventListener('load', function() {
         FastClick.attach(document.body);
       }, false);
-
-      function compile(template) {
-        var templateName = template.split('/templates/').reverse()[0].replace('.hbs', '');
-        $.ajax({
-          url: template,
-          cache: false,
-          async: false,
-          success: function (source) {
-            var input = Ember.Handlebars.precompile(source.toString());
-            Ember.TEMPLATES[templateName] = Ember.Handlebars.template(input);
-          }
-        });
-      }
-      compile('javascripts/templates/application.hbs');
-      compile('javascripts/templates/items.hbs');
-      compile('javascripts/templates/_header.hbs');
-      compile('javascripts/templates/_items.hbs');
-      compile('javascripts/templates/_bottom_utilities.hbs');
     </script>
   </head>
   <body>
